@@ -20,23 +20,24 @@ const weatherPromise = fetch('https://weatherapi-com.p.rapidapi.com/current.json
       name,
       country,
       condition,
-      temp_c,
-      pressure_mb,
+      temperature: temp_c,
+      pressure: pressure_mb,
       humidity,
-      precip_mm
+      precipitation: precip_mm
     }
   })
 
 </script>
-
-{#await weatherPromise then weather}
+{#await weatherPromise}
+  <p>Waiting ...</p>
+{:then weather} 
   <h1>{ weather.name }</h1>
   <img src={weather.condition.icon} alt="weather.condition.text">
   <p>{ weather.condition.text }</p>
-  <p>{ weather.temp_c }</p>
-  <p>Pressure: { weather.pressure_mb }</p>
+  <p>{ weather.temperature }</p>
+  <p>Pressure: { weather.pressure }</p>
   <p>Humidity: { weather.humidity }</p>
-  <p>Precipitation (mm): { weather.precip_mm }</p>
+  <p>Precipitation (mm): { weather.precipitation }</p>
 {/await}
 <style>
  
