@@ -14,18 +14,29 @@ const weatherPromise = fetch('https://weatherapi-com.p.rapidapi.com/current.json
 	.then(response => {
     console.log(response);
     const { location, current } = response;
-    const { country } = location;
-    const { condition } = current;
+    const { name, country, } = location;
+    const { condition, temp_c, pressure_mb, humidity, precip_mm } = current;
     return {
+      name,
+      country,
       condition,
-      country
+      temp_c,
+      pressure_mb,
+      humidity,
+      precip_mm
     }
   })
 
 </script>
 
 {#await weatherPromise then weather}
- <h1>{ weather.country }</h1>
+  <h1>{ weather.name }</h1>
+  <img src={weather.condition.icon} alt="weather.condition.text">
+  <p>{ weather.condition.text }</p>
+  <p>{ weather.temp_c }</p>
+  <p>Pressure: { weather.pressure_mb }</p>
+  <p>Humidity: { weather.humidity }</p>
+  <p>Precipitation (mm): { weather.precip_mm }</p>
 {/await}
 <style>
  
