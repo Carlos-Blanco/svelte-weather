@@ -34,10 +34,10 @@ const weatherPromise = fetch('https://weatherapi-com.p.rapidapi.com/current.json
   <h1>{ weather.name }</h1>
   <img src={weather.condition.icon} alt="weather.condition.text">
   <p>{ weather.condition.text }</p>
-  <p>{ weather.temperature }</p>
-  <p>Pressure: { weather.pressure }</p>
-  <p>Humidity: { weather.humidity }</p>
-  <p>Precipitation (mm): { weather.precipitation }</p>
+  <p>{ weather.temperature }°</p>
+  <p>Pressure: { weather.pressure } mb</p>
+  <p>Humidity: { weather.humidity } %</p>
+  <p>Precipitation: { weather.precipitation } mm</p>
 {/await}
 <style>
  
