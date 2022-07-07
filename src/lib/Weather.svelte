@@ -1,6 +1,5 @@
 <script>
-
-
+export let location;
 const options = {
 	method: 'GET',
 	headers: {
@@ -28,6 +27,7 @@ const weatherPromise = fetch('https://weatherapi-com.p.rapidapi.com/current.json
   })
 
 </script>
+{location}
 {#await weatherPromise}
   <p>Waiting ...</p>
 {:then weather} 

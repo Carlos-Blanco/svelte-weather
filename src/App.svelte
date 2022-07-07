@@ -1,10 +1,13 @@
 <script>
   import Weather from './lib/Weather.svelte'
+
+  let city="Madrid";
 </script>
 
 <main>
+  <input type="text" placeholder="Enter a city" bind:value={city} />
 
-  <Weather />
+  <Weather location={city}/>
 
 
 </main>
