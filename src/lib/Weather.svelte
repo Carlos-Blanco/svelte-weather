@@ -8,7 +8,9 @@ const options = {
 	}
 };
 
-const weatherPromise = fetch('https://weatherapi-com.p.rapidapi.com/current.json?q=Madrid', options)
+const URL = 'https://weatherapi-com.p.rapidapi.com/current.json?q=' + location;
+
+const weatherPromise = fetch(URL, options)
 	.then(response => response.json())
 	.then(response => {
     console.log(response);
